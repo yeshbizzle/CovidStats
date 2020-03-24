@@ -1,0 +1,53 @@
+h1,h2,h3,h4,h5,h6 {
+    color: gray;
+  }
+.warn{
+    color:#f39c12;
+}
+.danger{
+    color:#e74c3c;
+}
+.safe{
+    color:#27ae60;
+}
+.blue{
+    color:#3498db;
+}
+table {
+    width: 100%;
+  }
+  th{
+      color:gray
+  }
+  .footer {
+   
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: bottom;
+    
+    text-align: center;
+ }
+ .fa-xs	{
+     font-size: 0.70em;
+ }
+ 
+ .cool-link3 {
+    display: inline-block;
+    color: #5AA8FB;
+    text-decoration: none;
+  }
+  .cool-link3::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #5AA8FB;
+    transition: width .3s;
+  }
+  
+  .cool-link3:hover::after {
+    width: 100%;
+    
+  }
+ 

@@ -1,0 +1,244 @@
+<!-- 
+<br><br><br>
+<div *ngIf="all" class="container">
+    <div class="jumbotron">
+        <div class="row">
+  <div class="col-lg-3">
+      <mat-form-field>
+          <mat-label>Select City</mat-label>
+          <mat-select >
+              <mat-option (click)="onThreads(cities.value)" *ngFor="let cities of city" [value]="cities.value">
+                  {{cities.viewValue}}
+                </mat-option>
+             <mat-option   value="MUMBAI" > Mumbai </mat-option>
+            <mat-option  value="BANGALORE"> Bangalore </mat-option>
+            <mat-option   value="CHENNAI"> Chennai </mat-option>
+            <mat-option    value="KOLKATTA"> Kolkatta </mat-option>
+            <mat-option   value="HYDERABAD"> Hyderabad </mat-option> 
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div class="col-lg-9">
+      
+                <mat-form-field style="width: 100%" >
+                  <input matInput placeholder="Search" [(ngModel)]="SearchFilter" width="100%" >
+                </mat-form-field>
+          
+  </div>
+</div>
+<hr>
+<div *ngIf="show">
+<div  *ngFor ="let data of threads |paginate: { itemsPerPage: pageSize, currentPage: p }| filterdata : {ifsc:SearchFilter,bank_name: SearchFilter,address:SearchFilter,branch:SearchFilter }; ">
+<mat-card>
+   <a href="#" (click)=get(data)><h4>{{data.bank_name}}</h4></a> 
+    <hr>
+    <h6>{{data.branch}}</h6>
+    <h6>IFSC : {{data.ifsc}}</h6>
+    <h6>{{data.address}}</h6>
+
+</mat-card>
+<br>
+
+</div>
+<div class="row">
+<div class="col-md-2">
+  <form >
+      <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Page Size</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" #value (keyup)="onKeydownEvent(value)">
+        </div>
+  </form>
+</div>
+
+   <div class="col-lg-9"><pagination-controls (pageChange)="p = $event"></pagination-controls>
+   </div> 
+</div>
+
+</div>
+</div></div> -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+ <div class="container">
+  <a class=" navbar-brand" href="#"><i class="fa fa-contao" aria-hidden="true"></i> COVIDSTAT</a>
+  <a style="font-size:12px;">Updated on {{objDate | date: 'medium'}}</a>
+  
+</div>
+</nav>
+<div class="container">
+  <br> 
+      <div class="row">
+          <div class="col ">
+         
+                
+            <mat-card>
+                 
+               <h5 > <i  class="fa fa-circle warn" aria-hidden="true"></i> Cases</h5>
+             <h2><b>{{threads.cases}}</b></h2>
+             
+            </mat-card> <br></div> <br>
+            <div class="col" >
+              
+                <mat-card>
+                   
+                 <h5> <i class="fa fa-circle danger" aria-hidden="true"></i> Deaths</h5>
+               <h2><b>{{threads.deaths}}</b></h2>
+               
+              </mat-card><br></div><br>
+              <div class="col">
+                  
+                <mat-card>
+                     
+                   <h5> <i class="fa fa-circle safe" aria-hidden="true"></i> Recovered</h5>
+                 <h2><b>{{threads.recovered}}</b></h2>
+                 
+                </mat-card><br></div>
+            
+      </div>
+
+
+ <!--       <div class="row" *ngFor ="let data of country |paginate: { itemsPerPage: pageSize, currentPage: p }; ">
+
+        <div class="col-md-12">   <mat-card>
+    <h6> <i class="fa fa-globe blue" aria-hidden="true"></i>
+       {{data.country}}, Confirmed cases - {{data.cases}} </h6>
+   <h4><b>Cases reported today : {{data.todayCases}}</b> </h4>
+     
+     
+ 
+ </mat-card><br></div>
+     
+<br>
+
+</div>
+
+ -->
+ 
+ <hr><div *ngIf="view">
+ <div class="table-responsive">
+  <form class="form-inline my-2 my-lg-12 pull-right">
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search by country" #search id="search" name="search" [(ngModel)]="value"  width="100%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button (click)="onSearch(search.value)" class="btn btn-outline-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+      </div>
+    </div>
+
+<!-- 
+    <mat-form-field style="width: 90%" >
+      <input matInput placeholder="Search by country" #search id="search" name="search" [(ngModel)]="value"  width="100%" >
+     
+    </mat-form-field>
+   
+  <button class ="pull-right" (click)="onSearch(search.value)" mat-button><i class="fa fa-search" aria-hidden="true"></i>
+    Search</button> -->
+  </form>
+  
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Country</th>
+        <th scope="col">Confirmed cases</th>
+        
+        <th scope="col">Confirmed deaths</th>
+        
+        <th scope="col">Recovered</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let data of country |paginate: { itemsPerPage: pageSize, currentPage: p };"> 
+        
+        <td> <a style="color: #5AA8FB;" class="  cool-link3"  (click)="onSearch(data.country)">{{data.country}}</a></td>
+        <td>{{data.cases}}</td>
+        <td>{{data.deaths}}</td>
+        <td>{{data.recovered}}</td>
+      </tr>
+  
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-12"><pagination-controls (pageChange)="p = $event" maxSize="5"
+  directionLinks="true"
+  autoHide="true"
+  responsive="true"
+  previousLabel="Previous"
+  nextLabel="Next"></pagination-controls>
+</div> 
+  <br>
+</div>
+<div *ngIf="!view">
+  <hr>
+ 
+<div class="row">
+  <div class="col">
+    <mat-card>
+      <mat-card-title> <h5 style="margin-bottom: 0px;"> {{countryBy.country}}  <button class ="pull-right" (click)="clear()" mat-button><i class="fa fa-arrow-left" aria-hidden="true"></i>
+       Back</button></h5> 	</mat-card-title>
+     
+    </mat-card><br>
+    <div class="row">
+      <div class="col ">
+     
+            
+        <mat-card>
+             
+           <h6 > <i  class="fa fa-circle warn fa-xs" aria-hidden="true"></i> Cases</h6>
+           <hr>
+           <mat-chip-list>
+       
+     
+            <h6 >Total <mat-chip> <b>{{countryBy.cases}}</b></mat-chip></h6></mat-chip-list>
+        
+         <hr>
+         <mat-chip-list>
+         <h6 >Today <mat-chip> <b>{{countryBy.todayCases}}</b></mat-chip></h6></mat-chip-list>
+         
+        </mat-card> <br></div> <br>
+        <div class="col" >
+          
+            <mat-card>
+               
+             <h6> <i class="fa fa-circle danger fa-xs" aria-hidden="true"></i> Deaths</h6>
+             <hr>
+             <mat-chip-list>
+             <h6 >Total <mat-chip> <b>{{countryBy.deaths}}</b></mat-chip></h6></mat-chip-list>
+           <hr>
+           <mat-chip-list>
+           <h6 >Today <mat-chip> <b>{{countryBy.todayDeaths}}</b></mat-chip></h6></mat-chip-list>
+           
+          </mat-card><br></div><br>
+          <div class="col">
+              
+            <mat-card>
+                 
+               <h6> <i class="fa fa-circle safe fa-xs" aria-hidden="true"></i> Recovered</h6>
+             <h2><b>{{countryBy.recovered}}</b></h2>
+             
+            </mat-card><br></div>
+        
+  </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <mat-card> 
+      <mat-chip-list>
+       
+     
+      <h6 >Active cases <mat-chip> <b>{{countryBy.active}}</b></mat-chip></h6></mat-chip-list>
+      <mat-chip-list>    <h6 > Critical cases <mat-chip><b>{{countryBy.critical}}</b></mat-chip> </h6></mat-chip-list>
+      <mat-chip-list>  <h6 > Cases per one million <mat-chip><b>{{countryBy.casesPerOneMillion}}</b></mat-chip> </h6> </mat-chip-list>
+
+   
+    </mat-card>
+  </div>
+</div>
+</div>
+
+<br><br>
+<div class="footer">
+  <p style="font-size: 12px"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+     UI designed by <a href="https://www.instagram.com/yeshbizzle/">yeshbizzle</a></p>
+</div>
