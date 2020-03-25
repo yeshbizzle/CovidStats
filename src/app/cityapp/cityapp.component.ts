@@ -15,6 +15,9 @@ import {FyleService} from 'src/app/fyle.service';
   styleUrls: ['./cityapp.component.css']
 })
 export class CityappComponent implements OnInit {
+  latitude = -28.68352;
+  longitude = -147.20785;
+  mapType = 'roadmap';
    p: number = 1;
     pageSize:number=10; 
     objDate;
@@ -34,6 +37,7 @@ export class CityappComponent implements OnInit {
 threads;
 country=[];
 countryBy;
+countryInfo;
   constructor(private httpClient: HttpClient, private router: Router, private fyle: FyleService) { 
     //this.pageSize=20;
     this.objDate = Date.now(); 

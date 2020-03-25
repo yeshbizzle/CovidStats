@@ -50,4 +50,33 @@ table {
     width: 100%;
     
   }
- 
+  agm-map { height: 300px; /* height is required */ }
+
+  .ptUM8e {
+    font-size: 14px;
+    margin: auto;
+    display: inline-block;
+    text-align: left;
+    padding: 0 16px 0 37px;
+  }
+  .WEmQFe {
+    padding-bottom: 5px;
+}
+.cu62s {
+  color: #e94235;
+  font-weight: bold;
+  display: inline-block;
+  width: 10px;
+  text-align: center;
+  margin-left: -21px;
+}
+.V4tsWe {
+  color: black;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 4px;
+}
+.aeYe9b {
+  color: black;
+  line-height: 20px;
+}

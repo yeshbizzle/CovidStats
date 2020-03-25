@@ -15,7 +15,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
-
+import { AgmCoreModule } from '@agm/core';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,14 @@ import {MatChipsModule} from '@angular/material/chips';
     CityappComponent,
     FilterdataPipe
   ],
-  imports: [ MatButtonModule,MatChipsModule,
-    MatTableModule,
+  imports: [ MatButtonModule,MatChipsModule,AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyA3kbiTJbb0uZuDbjCd2_CIi6oaZz17l1A'
+    /* apiKey is required, unless you are a 
+    premium customer, in which case you can 
+    use clientId 
+    */
+  }),
+    MatTableModule,MatExpansionModule,
     BrowserModule,
     AppRoutingModule,
     MatSelectModule,
