@@ -1,4 +1,9 @@
-# Fyle
+# COVIDStat
+
+Description - Real-time COVID19 statistics data world wide on and plain User interface.
+
+Deployed on Firebase, link - https://covidify-32946.firebaseapp.com/
+Shortend URL - https://bit.ly/covidfire
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
 
