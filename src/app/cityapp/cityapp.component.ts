@@ -38,6 +38,7 @@ threads;
 country=[];
 countryBy;
 countryInfo;
+HistData;
   constructor(private httpClient: HttpClient, private router: Router, private fyle: FyleService) { 
     //this.pageSize=20;
     this.objDate = Date.now(); 
@@ -87,6 +88,17 @@ this.onContry();
         console.log(err.message);
       }, () => { }
     );
+    this.fyle.getHist(name).subscribe(
+      (data) => {
+       
+       
+        this.HistData = data as string[];
+      
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }, () => { }
+    );
   }
 /*   onKeydownEvent(value){
 if(value.value==""){
@@ -110,4 +122,5 @@ this.pageSize=value.value;
     this.countryBy=null;
     this.onContry();
   }
+
 }

@@ -17,4 +17,7 @@ getDataAll(): Observable<any> {
 getDataAllBy(name): Observable<any> {
   return this.httpClient.get('https://corona.lmao.ninja/countries/'+name);
 }
+getHist(name): Observable<any> {
+  return this.httpClient.get('https://corona.lmao.ninja/v2/historical/'+name);
+}
 }

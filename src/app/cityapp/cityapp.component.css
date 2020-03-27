@@ -80,3 +80,6 @@ table {
   color: black;
   line-height: 20px;
 }
+.floatLeft {  float: left; }
+.floatRight { float: left; }
+.container { overflow: hidden; }
