@@ -9,13 +9,13 @@ export class FyleService {
   constructor(private httpClient: HttpClient) { }
 
   getData(): Observable<any> {
-    return this.httpClient.get('https://corona.lmao.ninja/all');
+    return this.httpClient.get('https://corona.lmao.ninja/v2/all');
 }
 getDataAll(): Observable<any> {
-  return this.httpClient.get('https://corona.lmao.ninja/countries');
+  return this.httpClient.get('https://corona.lmao.ninja/v2/countries');
 }
 getDataAllBy(name): Observable<any> {
-  return this.httpClient.get('https://corona.lmao.ninja/countries/'+name);
+  return this.httpClient.get('https://corona.lmao.ninja/v2/countries/'+name);
 }
 getHist(name): Observable<any> {
   return this.httpClient.get('https://corona.lmao.ninja/v2/historical/'+name);

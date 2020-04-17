@@ -75,6 +75,9 @@
                  
                <h5 > <i  class="fa fa-circle warn" aria-hidden="true"></i> Cases</h5>
              <h2><b>{{threads.cases}}</b></h2>
+             <hr>
+             
+      <mat-chip-list>  <h6 >Cases today <mat-chip>{{threads.todayCases}}</mat-chip> </h6> </mat-chip-list>
              
             </mat-card> <br></div> <br>
             <div class="col" >
@@ -83,7 +86,10 @@
                    
                  <h5> <i class="fa fa-circle danger" aria-hidden="true"></i> Deaths</h5>
                <h2><b>{{threads.deaths}}</b></h2>
-               
+               <hr>
+                        
+      <mat-chip-list>  <h6 >Deaths today <mat-chip>{{threads.todayDeaths}}</mat-chip> </h6> </mat-chip-list>
+     
               </mat-card><br></div><br>
               <div class="col">
                   
@@ -91,7 +97,12 @@
                      
                    <h5> <i class="fa fa-circle safe" aria-hidden="true"></i> Recovered</h5>
                  <h2><b>{{threads.recovered}}</b></h2>
-                 
+                 <hr>
+                          
+      <mat-chip-list>  <h6 >Active cases <mat-chip>{{threads.active}}</mat-chip> </h6> </mat-chip-list>
+              
+      <mat-chip-list>  <h6 >Critical cases <mat-chip>{{threads.critical}}</mat-chip> </h6> </mat-chip-list>
+     
                 </mat-card><br></div>
             
       </div>
@@ -231,7 +242,9 @@
       <mat-chip-list>    <h6 > Critical cases <mat-chip><b>{{countryBy.critical}}</b></mat-chip> </h6></mat-chip-list>
       <mat-chip-list>  <h6 > Cases per one million <mat-chip><b>{{countryBy.casesPerOneMillion}}</b></mat-chip> </h6> </mat-chip-list>
       <mat-chip-list>  <h6 > Deaths per one million <mat-chip><b>{{countryBy.deathsPerOneMillion}}</b></mat-chip> </h6> </mat-chip-list>
-
+      <mat-chip-list>  <h6 > Tests  <mat-chip><b>{{countryBy.tests}}</b></mat-chip> </h6> </mat-chip-list>
+   
+      <mat-chip-list>  <h6 > Tests per one million <mat-chip><b>{{countryBy.testsPerOneMillion}}</b></mat-chip> </h6> </mat-chip-list>
    
     </mat-card>
   </div>
